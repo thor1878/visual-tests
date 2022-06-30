@@ -26,7 +26,8 @@ router.get('/dashboard/data', async (req, res) => {
         res.write(chunk + '#delimiter#\r\n');
 
         const pulls = await getJSON(`https://api.github.com/repos/${repo.full_name}/pulls`, req.user.token);
-        for (const pull of pulls) {
+        for (const [j, pull] of pulls.entries()) {
+
             // Proceed if pull request can NOT merge
             const status = await getJSON(`https://api.github.com/repos/${repo.full_name}/commits/${pull.head.ref}/status`, req.user.token);
             if (status.state === 'success') continue;

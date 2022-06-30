@@ -12,11 +12,15 @@ export function formatTimeSince(date) {
 
     const time = new Date(timeElapsed);
 
-    if (time < MILLISECONDS_IN_MINUT) return pluralize(time.getSeconds(), 'second');
-    else if (time < MILLISECONDS_IN_HOUR) return pluralize(time.getMinutes(), 'minute');
-    else if (time < MILLISECONDS_IN_DAY) return pluralize(time.getHours(), 'hour');
-    else return pluralize(time.getDay(), 'day');
+    if (time > MILLISECONDS_IN_DAY) return pluralize(getDays(time), 'day');
+    if (time > MILLISECONDS_IN_HOUR) return pluralize(time.getHours(), 'hour');
+    if (time > MILLISECONDS_IN_MINUT) return pluralize(time.getMinutes(), 'minute');
+    return pluralize(time.getSeconds(), 'second');
 }
 function pluralize(time, unit) {
     return time + ' ' + (time === 1 ? unit : unit + 's') + ' ago';
+}
+
+function getDays(date) {
+    return Math.floor(date / MILLISECONDS_IN_DAY);
 }
