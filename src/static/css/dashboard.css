@@ -1,0 +1,73 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+h1 {
+    margin: 30px 0;
+}
+#pulls-container {
+    overflow-y: scroll;
+    width: min(600px, 95vw);
+    height: 100%;
+}
+#pulls {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.pull {
+    position: relative;
+    text-decoration: none;
+    color: black;
+    margin: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px -2px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.pull:hover {
+    transform: scale(1.01);
+}
+.pull-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px 0 20px;
+    color: rgb(106, 106, 106);
+}
+.pull-base-head {
+
+}
+.pull-title {
+    font-size: 26px;
+    margin: 20px;
+}
+.pull-title span {
+    color: rgb(106, 106, 106);
+}
+.pull-repo {
+
+}
+.pull-timestamps {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    background-color: rgb(208, 218, 228);
+    font-size: 14px;
+}
+p.created, p.updated {
+    display: flex;
+    align-items: center;
+    min-width: 27%;
+}
+/* p.created {
+    padding-left: 20%;
+}
+p.updated {
+    padding-left: 10%;
+} */
+.pull-timestamps .material-icons {
+    padding-right: 10px;
+}

@@ -1,0 +1,24 @@
+extends base.pug
+
+block style
+    link(rel="stylesheet", href="/static/css/dashboard.css")
+
+block main
+    h1 Choose a pull request
+    #pulls-container
+        #pulls
+            each pull in pulls
+                a.pull(href=pull.loadingUrl)
+                    .pull-info
+                        p.pull-base-head #{pull.base.ref} &#8592; #{pull.head.ref}
+                        p.pull-repo #{pull.repo.fullName}
+                    p.pull-title #{pull.title}
+                        | 
+                        span ##{pull.number}
+                    .pull-timestamps
+                        p.created 
+                            span.material-icons edit_note
+                            span #{pull.createdAt}
+                        p.updated
+                            span.material-icons update
+                            span #{pull.updatedAt}

@@ -1,0 +1,12 @@
+extends base.pug
+
+block style 
+    link(rel="stylesheet", href="/static/css/loading.css")
+
+block main
+    form(action=submitUrl, method="post") 
+        input#data(type="hidden" name="data")
+    #progress-bar 
+
+block script
+    script(src="/static/js/loading.js") 

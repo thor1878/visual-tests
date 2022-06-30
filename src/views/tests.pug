@@ -1,0 +1,20 @@
+extends base.pug
+
+block style
+    link(rel="stylesheet", href="/static/css/tests.css")
+
+block main 
+    h1 tests
+    each file in files
+        p path: #{file.path}
+        p language: #{file.language}
+        each func in file.functions 
+            p name: #{func.name}
+            p params: #{func.params}
+            pre #{func.functionString}
+            br
+        br
+        br
+
+block script 
+    script(src="/static/js/tests.js")

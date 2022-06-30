@@ -1,0 +1,47 @@
+#progress-container {
+    display: none;
+}
+#progress-container.active {
+    content: '';
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#progress-circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min(60vw, 60vh);
+    height: min(60vw, 60vh);
+    /* background-color: rgb(103, 146, 184); */
+    border-radius: 50%;
+}
+#progress-circle::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    background-color: rgb(43, 43, 43);
+}
+#progress-text {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    z-index: 1;
+}
+#progress-text #message {
+    font-size: min(2.5vw, 2.5vh);
+    margin-bottom: 10%;
+}
+#progress-text #numbers {
+    font-size: min(6vw, 6vh);
+}
